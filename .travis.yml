@@ -4,10 +4,12 @@ node_js: "6.3.1"
 rvm: "2.3.1"
 
 install:
-  - pushd web-console && bundle install -j4 && popd
+  - cd web-console && bundle install -j4 && popd
+  - cd $TRAVIS_BUILD_DIR
 
 script:
-  - pushd web-console/test/dummy && bundle exec rackup --host localhost --port 19292 &; popd
+  - cd web-console/test/dummy && bundle exec rackup --host localhost --port 19292 &
+  - cd $TRAVIS_BUILD_DIR
   - sleep 10
   - mkdir tmp
   - npm test
