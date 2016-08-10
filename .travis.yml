@@ -16,7 +16,7 @@ before_script:
   - sleep 3
 
 script:
-  - cd web-console/test/dummy && bundle exec rackup --host localhost --port 19292 &
+  - cd web-console/test/dummy && bundle exec rackup -q --host localhost --port 19292 &
   - cd $TRAVIS_BUILD_DIR
   - sleep 10
   - mkdir tmp
