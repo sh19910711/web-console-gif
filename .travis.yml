@@ -1,5 +1,7 @@
 language: nodejs
 
+rvm: 2.3.1
+
 install:
   - cd web-console && bundle install -j4
   - mkdir tmp
