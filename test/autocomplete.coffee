@@ -40,7 +40,7 @@ class Runner extends Nightmare
 console.log 'before run'
 new Runner('autocomplete')
   .viewport 640, 480
-  .goto 'http://localhost:19292'
+  .goto 'http://127.0.0.1:19292'
   .wait '#console'
   .capture()
 
