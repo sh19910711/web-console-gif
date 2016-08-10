@@ -1,0 +1,11 @@
+language: nodejs
+
+install:
+  - cd web-console && bundle install -j4
+  - mkdir tmp
+
+script:
+  - cd web-console/test/dummy && bundle exec rackup --host localhost --port 19292 &
+  - sleep 10
+  - npm test
+  - ls tmp/
