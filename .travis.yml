@@ -1,11 +1,13 @@
 language: node_js
-
 node_js: "6.3.1"
+cache:
+  directories:
+    - vendor/bundle
 
 install:
   - rvm install 2.3.1 --install --binary --fuzzy
   - npm install
-  - cd web-console && bundle install -j4
+  - cd web-console && bundle install --path $TRAVIS_BUILD_DIR/vendor/bundle -j4
   - cd $TRAVIS_BUILD_DIR
 
 script:
