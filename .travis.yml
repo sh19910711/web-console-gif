@@ -1,13 +1,16 @@
 language: nodejs
 
-rvm: 2.3.1
+node_js: "6.3.1"
+rvm: "2.3.1"
 
 install:
-  - cd web-console && bundle install -j4
   - mkdir tmp
+  - pushd web-console && bundle install -j4
+  - popd
 
 script:
-  - cd web-console/test/dummy && bundle exec rackup --host localhost --port 19292 &
+  - pushd web-console/test/dummy && bundle exec rackup --host localhost --port 19292 &
+  - popd
   - sleep 10
   - npm test
   - ls tmp/
