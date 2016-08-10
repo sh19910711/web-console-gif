@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "$(npm bin)/coffee test/autocomplete.coffee; convert -delay 40 -loop 0 tmp/autocomplete_*.png tmp/autocomplete.gif"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "nightmare": "^2.6.1"
+  }
 }
