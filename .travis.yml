@@ -5,9 +5,11 @@ cache:
     - node_modules
     - vendor/bundle
 
+env:
+  global:
+    - RACK_ENV=development
+
 install:
-  - env
-  - mkdir tmp
   - rvm install 2.3.1 --install --binary --fuzzy
   - npm install
   - cd web-console && bundle install --path $TRAVIS_BUILD_DIR/vendor/bundle -j4
@@ -17,6 +19,7 @@ before_script:
   - source ./script/xvfb.source.bash
 
 script:
+  - mkdir tmp
   - bash ./script/dummy.bash
   - sleep 7
   - npm test
