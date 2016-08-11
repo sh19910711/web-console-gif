@@ -12,9 +12,7 @@ install:
   - cd $TRAVIS_BUILD_DIR
 
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
+  - source ./script/xvfb.source.bash
 
 script:
   - cd web-console/test/dummy && bundle exec rackup -q --host 0.0.0.0 --port 19292 &
