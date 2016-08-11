@@ -34,10 +34,8 @@ class Runner extends Nightmare
       .capture()
 
   capture: ->
-    @
-      .screenshot __dirname + '/../tmp/' + @name + "_" + @cntText() + '.png'
+    @.screenshot __dirname + '/../tmp/' + @name + "_" + @cntText() + '.png'
 
-console.log 'before run'
 new Runner('autocomplete')
   .viewport 640, 480
   .goto 'http://127.0.0.1:19292'

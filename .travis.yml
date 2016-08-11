@@ -15,8 +15,9 @@ before_script:
   - source ./script/xvfb.source.bash
 
 script:
-  - cd web-console/test/dummy && bundle exec rackup -q --host 0.0.0.0 --port 19292 &
+  - bash ./script/dummy.bash
   - cd $TRAVIS_BUILD_DIR
+  - pwd
   - sleep 10
   - mkdir tmp
   - npm test
