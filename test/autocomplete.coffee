@@ -78,7 +78,7 @@ new Runner('autocomplete')
   .capture()
   .capture()
   .capture()
-   
+
   .end()
   .then (res)->
     console.log(res)
