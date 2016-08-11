@@ -17,7 +17,6 @@ before_script:
 script:
   - mkdir tmp
   - bash ./script/dummy.bash
-  - sleep 7
+  - sleep 3
   - npm test
-  - ls tmp/
-  - bash ./script/upload.bash
+  - bash ./script/upload.bash tmp/autocomplete.gif
