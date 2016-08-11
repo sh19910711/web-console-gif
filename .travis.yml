@@ -1,0 +1,22 @@
+language: node_js
+node_js: 6.3.1
+cache:
+  directories:
+    - node_modules
+    - vendor/bundle
+
+install:
+  - rvm install 2.3.1 --install --binary --fuzzy
+  - npm install
+  - cd web-console && bundle install --path $TRAVIS_BUILD_DIR/vendor/bundle -j4
+  - cd $TRAVIS_BUILD_DIR
+
+before_script:
+  - source ./script/xvfb.source.bash
+
+script:
+  - mkdir tmp
+  - bash ./script/dummy.bash
+  - sleep 3
+  - npm test
+  - bash ./script/upload.bash tmp/autocomplete.gif

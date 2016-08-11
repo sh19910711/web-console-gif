@@ -2,7 +2,7 @@ Nightmare = require('nightmare')
 
 class Runner extends Nightmare
   constructor: (@name)->
-    super()
+    super(waitTimeout: 100000)
     @cnt = 0
 
   typeWithCapture: (target, text)->
@@ -34,12 +34,11 @@ class Runner extends Nightmare
       .capture()
 
   capture: ->
-    @
-      .screenshot __dirname + '/../tmp/' + @name + "_" + @cntText() + '.png'
+    @.screenshot __dirname + '/../tmp/' + @name + "_" + @cntText() + '.png'
 
 new Runner('autocomplete')
   .viewport 640, 480
-  .goto 'http://localhost:19292'
+  .goto 'http://127.0.0.1:19292'
   .wait '#console'
   .capture()
 
