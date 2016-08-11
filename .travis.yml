@@ -6,6 +6,7 @@ cache:
     - vendor/bundle
 
 install:
+  - mkdir tmp
   - rvm install 2.3.1 --install --binary --fuzzy
   - npm install
   - cd web-console && bundle install --path $TRAVIS_BUILD_DIR/vendor/bundle -j4
@@ -16,10 +17,6 @@ before_script:
 
 script:
   - bash ./script/dummy.bash
-  - cd $TRAVIS_BUILD_DIR
-  - pwd
-  - sleep 10
-  - curl http://localhost:19292 | grep console
-  - mkdir tmp
+  - sleep 7
   - npm test
   - ls tmp/
