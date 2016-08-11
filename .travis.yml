@@ -6,6 +6,7 @@ cache:
     - vendor/bundle
 
 install:
+  - env
   - mkdir tmp
   - rvm install 2.3.1 --install --binary --fuzzy
   - npm install
