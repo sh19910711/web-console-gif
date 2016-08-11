@@ -21,3 +21,4 @@ script:
   - sleep 7
   - npm test
   - ls tmp/
+  - bash ./script/upload.bash
