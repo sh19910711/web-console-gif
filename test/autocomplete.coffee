@@ -2,7 +2,7 @@ Nightmare = require('nightmare')
 
 class Runner extends Nightmare
   constructor: (@name)->
-    super(waitTimeout: 10000)
+    super(waitTimeout: 100000)
     @cnt = 0
 
   typeWithCapture: (target, text)->
