@@ -1,5 +1,5 @@
 language: node_js
-node_js: "6.3.1"
+node_js: "4.4.5"
 cache:
   directories:
     - node_modules
@@ -19,6 +19,7 @@ script:
   - cd $TRAVIS_BUILD_DIR
   - pwd
   - sleep 10
+  - curl http://localhost:19292 | grep console
   - mkdir tmp
   - npm test
   - ls tmp/
