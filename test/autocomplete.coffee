@@ -1,44 +1,6 @@
-Nightmare = require('nightmare')
+Runner = require('./runner')
 
-class Runner extends Nightmare
-  constructor: (@name)->
-    super(waitTimeout: 100000)
-    @cnt = 0
-
-  typeWithCapture: (target, text)->
-    text.split('').forEach (c)=>
-      @type target, c
-      @capture()
-    @
-
-  cntText: ->
-    ("000" + (@cnt++)).slice(-3)
-
-  keyTab: ->
-    @
-      .evaluate ->
-        REPLConsole.currentSession.onKeyDown
-          keyCode: 9
-          preventDefault: ->
-          stopPropagation: ->
-      .wait 100
-      .capture()
-
-  keyEnter: ->
-    @
-      .evaluate ->
-        REPLConsole.currentSession.onKeyDown
-          keyCode: 13
-          preventDefault: ->
-          stopPropagation: ->
-      .capture()
-
-  capture: ->
-    @.screenshot __dirname + '/../tmp/' + @name + "_" + @cntText() + '.png'
-
-new Runner('autocomplete')
-  .viewport 640, 480
-  .goto 'http://127.0.0.1:19292'
+new Runner('autocomplete', 'http://localhost:19292', show: true)
   .wait '#console'
   .capture()
 
