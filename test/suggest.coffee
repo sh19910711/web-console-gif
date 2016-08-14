@@ -7,7 +7,10 @@ new Runner 'suggest', 'http://localhost:19292'
   .mousedown '#console'
   .capture()
 
-  .typeWithCapture '#console', 'WebConsole::Middleware.mount_point'
+  .typeWithCapture '#console', 'WebConsole::'
+  .typeWithCapture '#console', 'Middle'
+  .keyTab()
+  .typeWithCapture '#console', '.mount_point'
   .keyEnter()
   .capture()
   .capture()
