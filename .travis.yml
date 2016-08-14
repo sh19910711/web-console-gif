@@ -20,4 +20,4 @@ script:
   - sleep 3
   - npm test autocomplete
   - npm test suggest
-  - for x in tmp/*.gif; do echo "upload: $x"; bash ./script/upload.bash $x; done
+  - "for x in tmp/*.gif; do echo "upload: $x"; bash ./script/upload.bash $x; done"
