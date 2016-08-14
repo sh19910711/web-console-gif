@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "$(npm bin)/coffee test/autocomplete.coffee; convert -delay 40 -loop 0 tmp/autocomplete_*.png tmp/autocomplete.gif"
+    "test": "bash ./script/test.bash"
   },
   "author": "",
   "license": "ISC",

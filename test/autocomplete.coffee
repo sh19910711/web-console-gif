@@ -1,6 +1,6 @@
 Runner = require('./runner')
 
-new Runner('autocomplete', 'http://localhost:19292', show: true)
+new Runner 'autocomplete', 'http://localhost:19292'
   .wait '#console'
   .capture()
 

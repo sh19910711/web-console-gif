@@ -18,5 +18,6 @@ script:
   - mkdir tmp
   - bash ./script/dummy.bash
   - sleep 3
-  - npm test
-  - bash ./script/upload.bash tmp/autocomplete.gif
+  - npm test autocomplete
+  - npm test suggest
+  - for x in tmp/*.gif; do echo "upload: $x"; bash ./script/upload.bash $x; done

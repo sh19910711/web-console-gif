@@ -2,6 +2,7 @@ Nightmare = require('nightmare')
 
 module.exports = class Runner extends Nightmare
   constructor: (@name, @url, opts = {})->
+    @dir = process.argv[2]
     super(Object.assign(opts, waitTimeout: 100000))
     @
       .viewport 640, 480
@@ -37,4 +38,4 @@ module.exports = class Runner extends Nightmare
       .capture()
 
   capture: ->
-    @.screenshot __dirname + '/../tmp/' + @name + "_" + @cntText() + '.png'
+    @.screenshot __dirname + '/../' + @dir + '/' + @name + "_" + @cntText() + '.png'
